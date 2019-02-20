@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script type='text/javascript'>
+
+var link = document.getElementById('link'); // ref. to your anchor tag
+
+var d = new Date,
+    date = d.getDate(),
+    month = d.getMonth()+1, // Months in JavaScript are 0 indexed
+    year = d.getFullYear();
+
+if(date < 10) date = ("0" + date);
+if(month < 10) month = ("0" + month);
+
+link.href = ("http://www.hs.fi/lehti/hs-daily/" + year + "-" + month + "-" + date);//Concatenating three numbers, kind of a hack
+
+</script>
+<style type="text/css">
+#link {
+	-moz-box-shadow:inset 0px 1px 0px 0px #fce2c1;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #fce2c1;
+	box-shadow:inset 0px 1px 0px 0px #fce2c1;
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #ffc477), color-stop(1, #fb9e25) );
+	background:-moz-linear-gradient( center top, #ffc477 5%, #fb9e25 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffc477', endColorstr='#fb9e25');
+	background-color:#ffc477;
+	-webkit-border-top-left-radius:0px;
+	-moz-border-radius-topleft:0px;
+	border-top-left-radius:0px;
+	-webkit-border-top-right-radius:0px;
+	-moz-border-radius-topright:0px;
+	border-top-right-radius:0px;
+	-webkit-border-bottom-right-radius:0px;
+	-moz-border-radius-bottomright:0px;
+	border-bottom-right-radius:0px;
+	-webkit-border-bottom-left-radius:0px;
+	-moz-border-radius-bottomleft:0px;
+	border-bottom-left-radius:0px;
+text-indent:0;
+	border:1px solid #eeb44f;
+	display:inline-block;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:15px;
+	font-weight:bold;
+	font-style:normal;
+height:40px;
+	line-height:40px;
+width:100px;
+	text-decoration:none;
+	text-align:center;
+	text-shadow:1px 1px 0px #cc9f52;
+}.classname:hover {
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #fb9e25), color-stop(1, #ffc477) );
+	background:-moz-linear-gradient( center top, #fb9e25 5%, #ffc477 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#fb9e25', endColorstr='#ffc477');
+	background-color:#fb9e25;
+}.classname:active {
+	position:relative;
+	top:1px;
+}</style>
+</head>
+<body>
+<a href="#" id="link">HS</a>
+</body>
+</html>
