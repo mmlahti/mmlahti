@@ -1,34 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<script type='text/javascript'>
 
-Date.prototype.toMyString = function () {
-   //If month/day is single digit value add prefix as 0
-    function AddZero(obj) {
-          obj = obj + '';
-          if (obj.length == 1)
-              obj = "0" + obj
-          return obj;
-    }
-
-    var output = "";
-    output += this.getFullYear();
-	output += "-";
-    output += AddZero(this.getMonth()+1);
-	output += "-";
-    output += AddZero(this.getDate());
-
-    return output; 
-}
-
-var d = new Date();
-
-var link = document.getElementById("link");
-
-link.setAttribute("href","https://wwww.hs.fi/lehti/hs-daily/"+d.toMyString());
-
-</script>
 <style type="text/css">
 #link {
 	-moz-box-shadow:inset 0px 1px 0px 0px #fce2c1;
@@ -74,7 +47,36 @@ width:100px;
 	top:1px;
 }</style>
 </head>
-<body onLoad="Date.prototype.toMyString">
+<body>
+//<![CDATA[ 
+window.onload=function(){
+
+Date.prototype.toMyString = function () {
+   //If month/day is single digit value add prefix as 0
+    function AddZero(obj) {
+          obj = obj + '';
+          if (obj.length == 1)
+              obj = "0" + obj
+          return obj;
+    }
+
+    var output = "";
+    output += this.getFullYear();
+	output += "-";
+    output += AddZero(this.getMonth()+1);
+	output += "-";
+    output += AddZero(this.getDate());
+
+    return output; 
+}
+
+var d = new Date();
+
+var link = document.getElementById("link");
+
+link.setAttribute("href","https://wwww.hs.fi/lehti/hs-daily/"+d.toMyString());
+
+}//]]>
 <a href="#" id="link">HS</a>
 </body>
 </html>
