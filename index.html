@@ -3,17 +3,30 @@
 <head>
 <script type='text/javascript'>
 
-var link = document.getElementById('link'); // ref. to your anchor tag
+Date.prototype.toMyString = function () {
+   //If month/day is single digit value add prefix as 0
+    function AddZero(obj) {
+          obj = obj + '';
+          if (obj.length == 1)
+              obj = "0" + obj
+          return obj;
+    }
 
-var d = new Date,
-    date = d.getDate(),
-    month = d.getMonth()+1, // Months in JavaScript are 0 indexed
-    year = d.getFullYear();
+    var output = "";
+    output += this.getFullYear();
+	output += "-";
+    output += AddZero(this.getMonth()+1);
+	output += "-";
+    output += AddZero(this.getDate());
 
-if(date < 10) date = ("0" + date);
-if(month < 10) month = ("0" + month);
+    return output; 
+}
 
-link.href = ("http://www.hs.fi/lehti/hs-daily/" + year + "-" + month + "-" + date);//Concatenating three numbers, kind of a hack
+var d = new Date();
+
+var link = document.getElementById("link");
+
+link.setAttribute("href","https://wwww.hs.fi/lehti/hs-daily/"+d.toMyString());
 
 </script>
 <style type="text/css">
@@ -61,7 +74,7 @@ width:100px;
 	top:1px;
 }</style>
 </head>
-<body>
+<body onLoad="function()">
 <a href="#" id="link">HS</a>
 </body>
 </html>
