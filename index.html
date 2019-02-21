@@ -1,11 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Linkki HS Näköislehteen</title>
-<link rel="icon" type="image/x-icon" href="https://www.hs.fi/assets/images/hs/platform-icons/favicon.6e6d2afed9fe0112.ico" sizes="16x16 24x24 32x32 48x48 64x64">
-<link rel="icon" type="image/png" sizes="192x192" href="https://www.hs.fi/assets/images/hs/platform-icons/hs_192x192.7c3d2b799c6ee7a6.png">
+
 <style type="text/css">
-#link1, #link2 {
+#link {
 	-moz-box-shadow:inset 0px 1px 0px 0px #fce2c1;
 	-webkit-box-shadow:inset 0px 1px 0px 0px #fce2c1;
 	box-shadow:inset 0px 1px 0px 0px #fce2c1;
@@ -30,16 +28,15 @@ text-indent:0;
 	display:inline-block;
 	color:#ffffff;
 	font-family:Arial;
-	font-size:50px;
+	font-size:15px;
 	font-weight:bold;
 	font-style:normal;
-height:200px;
+height:40px;
 	line-height:40px;
-width:800px;
+width:100px;
 	text-decoration:none;
 	text-align:center;
 	text-shadow:1px 1px 0px #cc9f52;
-	padding-top: 125px;
 }.classname:hover {
 	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #fb9e25), color-stop(1, #ffc477) );
 	background:-moz-linear-gradient( center top, #fb9e25 5%, #ffc477 100% );
@@ -55,16 +52,7 @@ width:800px;
 //<![CDATA[ 
 window.onload=function(){
 
-Date1.prototype.toMyString = function () {
-   //If month/day is single digit value add prefix as 0
-    function AddZero(obj) {
-          obj = obj + '';
-          if (obj.length == 1)
-              obj = "0" + obj
-          return obj;
-    }
-	
-Date2.prototype.toMyString = function () {
+Date.prototype.toMyString = function () {
    //If month/day is single digit value add prefix as 0
     function AddZero(obj) {
           obj = obj + '';
@@ -73,39 +61,24 @@ Date2.prototype.toMyString = function () {
           return obj;
     }
 
-    var output1 = "";
-    output1 += this.getFullYear();
-    output1 += "-";
-    output1 += AddZero(this.getMonth()+1);
-    output1 += "-";
-    output1 += AddZero(this.getDate());
+    var output = "";
+    output += this.getFullYear();
+	output += "-";
+    output += AddZero(this.getMonth()+1);
+	output += "-";
+    output += AddZero(this.getDate());
 
-    return output1; 
-	
-    var output2 = "";
-    output2 += AddZero(this.getDate());
-    output2 += AddZero(this.getMonth()+1);
-    output2 += this.getFullYear();
-
-    return output2; 
+    return output; 
 }
 
-var d1 = new Date1();
+var d = new Date();
 
-var link1 = document.getElementById("link1");
+var link = document.getElementById("link");
 
-var d2 = new Date2();
-	
-var link2 = document.getElementById("link2");
-
-link1.setAttribute("href","https://www.hs.fi/lehti/hs-daily/"+d1.toMyString());
-	
-link2.setAttribute("href","https://www.hs.fi/paivanlehti/"+d2.toMyString());
+link.setAttribute("href","https://www.hs.fi/lehti/hs-daily/"+d.toMyString());
 
 }//]]>
 </script>
-<a href="#" id="link1">HS Päivän näköislehti</a>
-	<br /><br />
-<a href="#" id="link2">HS Päivän lehti</a>
+<a href="#" id="link">HS Päivän näköislehti</a>
 </body>
 </html>
