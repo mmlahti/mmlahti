@@ -5,7 +5,7 @@
 <link rel="icon" type="image/x-icon" href="https://www.hs.fi/assets/images/hs/platform-icons/favicon.6e6d2afed9fe0112.ico" sizes="16x16 24x24 32x32 48x48 64x64">
 <link rel="icon" type="image/png" sizes="192x192" href="https://www.hs.fi/assets/images/hs/platform-icons/hs_192x192.7c3d2b799c6ee7a6.png">
 <style type="text/css">
-#link {
+#link1, #link2 {
 	-moz-box-shadow:inset 0px 1px 0px 0px #fce2c1;
 	-webkit-box-shadow:inset 0px 1px 0px 0px #fce2c1;
 	box-shadow:inset 0px 1px 0px 0px #fce2c1;
@@ -64,24 +64,39 @@ Date.prototype.toMyString = function () {
           return obj;
     }
 
-    var output = "";
-    output += this.getFullYear();
-	output += "-";
-    output += AddZero(this.getMonth()+1);
-	output += "-";
-    output += AddZero(this.getDate());
+    var output1 = "";
+    output1 += this.getFullYear();
+    output1 += "-";
+    output1 += AddZero(this.getMonth()+1);
+    output1 += "-";
+    output1 += AddZero(this.getDate());
 
-    return output; 
+    return output1; 
+	
+    var output2 = "";
+    output2 += AddZero(this.getDate());
+    output2 += AddZero(this.getMonth()+1);
+    output2 += this.getFullYear();
+
+    return output2; 
 }
 
-var d = new Date();
+var d1 = new Date();
 
-var link = document.getElementById("link");
+var link1 = document.getElementById("link1");
 
-link.setAttribute("href","https://www.hs.fi/lehti/hs-daily/"+d.toMyString());
+var d2 = new Date();
+	
+var link2 = document.getElementById("link2");
+
+link1.setAttribute("href","https://www.hs.fi/lehti/hs-daily/"+d1.toMyString());
+	
+link2.setAttribute("href","https://www.hs.fi/paivanlehti/"+d2.toMyString());
 
 }//]]>
 </script>
-<a href="#" id="link">HS Päivän näköislehti</a>
+<a href="#" id="link1">HS Päivän näköislehti</a>
+	<br />
+<a href="#" id="link2">HS Päivän lehti</a>
 </body>
 </html>
